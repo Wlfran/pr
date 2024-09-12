@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de Inicio de Sesión</title>
+    <link href="assets/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Incluir Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/materialdesignicons.css">
+    <link rel="stylesheet" href="assets/css/styleA.css">
+    <link rel="stylesheet" href="assets/css/styleUsuario.css">
+
+    
+</head>
+<body>
+
+<div class="contenidoUsuario">
+    <div class="left-side"></div>
+    <div class="right-side">
+        <button class="btn-back" id="btn-inicio">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <div id="overlay"></div>
+        <div id="modal" style="display: none; background-color: transparent;">
+            <i class="fas fa-xmark" id="closeModalUsuario"></i>
+            <div class="bg-overlay"></div>
+            <div class="container align-items-center px-5 h-screen z-1 relative">
+                <div class="shadow bg-indigo-950 d-flex flex-column form-layout">
+                    <div class="d-flex justify-content-center mb-4">
+                        <a class='d-flex align-items-center gap-x-1' href='/'>
+                            <h1 class="text-uppercase text-white font-bold text-2xl mb-0">Authlab</h1>
+                        </a>
+                    </div>
+                    <div class="d-flex flex-column flex-1 justify-content-center">
+                        <div class="success-icon text-center mb-3">
+                            <i class="mdi mdi-shield-key-outline"></i>
+                            <h2 class="text-2xl text-white">Verificar su telefono</h2>
+                            <h3 class="text-gray-200 text-sm">Ingrese los 6 dígitos enviados a su número de celular</h3>
+                        </div>
+                        <form id="verification-form">
+                            <div class="row">
+                                <div class="col-2"><input type="text" class="form-control form-control-lg text-center border-0" maxlength="1" id="digit1-input"></div>
+                                <div class="col-2"><input type="text" class="form-control form-control-lg text-center border-0" maxlength="1" id="digit2-input"></div>
+                                <div class="col-2"><input type="text" class="form-control form-control-lg text-center border-0" maxlength="1" id="digit3-input"></div>
+                                <div class="col-2"><input type="text" class="form-control form-control-lg text-center border-0" maxlength="1" id="digit4-input"></div>
+                                <div class="col-2"><input type="text" class="form-control form-control-lg text-center border-0" maxlength="1" id="digit5-input"></div>
+                                <div class="col-2"><input type="text" class="form-control form-control-lg text-center border-0" maxlength="1" id="digit6-input"></div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <button type="button" class="btn btn-primary w-full" id="closeModal">Confirmar</button>
+                            </div>
+                        </form>
+                        <!-- <div class="d-flex align-items-center justify-content-center gap-x-4 mt-4">
+                            <div class="d-flex align-items-center gap-x-4">
+                                <p class="text-sm mb-0 text-white">Didn't receive a code?</p>
+                                <a href="#" class="text-sm no-underline text-cyan-400 hover:text-cyan-500">Resend</a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="recaptcha-container" style="display: none;"></div>
+        <div id="recaptcha-container"></div>
+        <div class="login-register-form">
+            <div class="containerText">
+                <p><b>Get more things done with Loggin platform</b></p>
+                <p>Acces to the most powerfull tool in the entire design and web industry</p>
+            </div>
+            <div class="tabs">
+                <a href="#" id="login-tab" class="active">Login</a>
+                <a href="#" id="register-tab">Register</a>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <input id="email" type="email" class="form-control" placeholder="E-mail Address">
+                </div>
+                <div class="form-group">
+                    <input id="password" type="password" class="form-control" placeholder="Password">
+                </div>
+                <button class="btn btn-primary">Login</button>
+                <div class="form-text">
+                    <a class="btn btn-link" id="btn-recuperar" href="#">Recuperar Contraseña</a>
+                </div>
+            </form>
+        
+            <form id="register-form" style="display: none;">
+                <div class="form-group">
+                    <input id="nombres" type="text" class="form-control" placeholder="Nombres">
+                </div>
+                <div class="form-group">
+                    <input id="apellidos" type="text" class="form-control" placeholder="Apellidos">
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <button id="dropdownButton" class="btn-dropdown">Seleccione su país <i class="fas fa-chevron-down"></i></button>
+                        <div id="dropdownMenu" class="dropdown-menu">
+                            <a href="#" class="dropdown-item" data-prefix="+57">Colombia (+57)</a>
+                            <a href="#" class="dropdown-item" data-prefix="+504">Honduras (+504)</a>
+                            <a href="#" class="dropdown-item" data-prefix="+1">República Dominicana (+1)</a>
+                        </div>
+                        <input id="celular" type="tel" class="form-control" placeholder="Celular">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input id="correo" type="email" class="form-control" placeholder="Correo">
+                </div>
+                <div class="form-group">
+                    <input id="contraseña" type="password" class="form-control" placeholder="Contraseña">
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="aceptarPoliticas">
+                    <label class="form-check-label" for="aceptarPoliticas">
+                        Aceptar <a href="politicas.html" target="_blank">políticas</a>
+                    </label>
+                    <small id="politicasError" style="color: red; display: none;">Debes aceptar las políticas para continuar.</small>
+                </div>
+                <button class="btn btn-primary" id="openModal">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal para recuperar contraseña -->
+<div id="overlayRecuperar"></div>
+<div id="modalRecuperar">
+    <h3>Recuperar Contraseña</h3>
+    <p>Por favor, introduce tu correo electrónico para restablecer tu contraseña.</p>
+    <input type="email" id="email-recuperar" placeholder="Correo electrónico">
+    <div class="modal-footer">
+        <button class="btn-enviar" id="enviarRecuperar">Enviar</button>
+        <button class="btn-cancelar" id="cancelarRecuperar">Cancelar</button>
+    </div>
+</div>
+
+
+<script type="module" src="assets/js/usuario.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    
+</script>
+  
+
+
+</body>
+</html>
+
+
